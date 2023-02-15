@@ -1,7 +1,14 @@
-<script setup></script>
+<script setup>
+import TheHeader from './components/organisms/TheHeader.vue';
+import TheSvg from './components/ions/TheSvg.vue';
+</script>
 
 <template>
-  <h1>Test</h1>
+  <div class="layout">
+    <the-svg />
+    <the-header />
+    <h1>Test</h1>
+  </div>
 </template>
 
 <style lang="scss">
@@ -37,5 +44,23 @@ html {
 body {
   box-sizing: border-box;
   font-family: var(--font-family);
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 9.6rem auto;
+    padding: 0;
+    padding: 3.2rem;
+    padding-right: 0;
+  }
 }
 </style>
