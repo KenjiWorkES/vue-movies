@@ -4,12 +4,11 @@ import TheSvg from './components/ions/TheSvg.vue';
 </script>
 
 <template>
-  <div>
+  <div class="layout">
     <the-svg />
     <the-header />
+    <h1>Test</h1>
   </div>
-
-  <h1>Test</h1>
 </template>
 
 <style lang="scss">
@@ -47,5 +46,21 @@ body {
   font-family: var(--font-family);
   background-color: var(--color-blue-600);
   color: var(--color-white);
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 9.6rem auto;
+    padding: 0;
+    padding: 3.2rem;
+    padding-right: 0;
+  }
 }
 </style>
