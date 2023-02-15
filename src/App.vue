@@ -1,6 +1,14 @@
-<script setup></script>
+<script setup>
+import TheHeader from './components/organisms/TheHeader.vue';
+import TheSvg from './components/ions/TheSvg.vue';
+</script>
 
 <template>
+  <div>
+    <the-svg />
+    <the-header />
+  </div>
+
   <h1>Test</h1>
 </template>
 
@@ -37,5 +45,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: var(--font-family);
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
 }
 </style>
