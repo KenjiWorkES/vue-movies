@@ -7,7 +7,9 @@ import TheSvg from './components/ions/TheSvg.vue';
   <div class="layout">
     <the-svg />
     <the-header />
-    <h1>Test</h1>
+    <main>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 

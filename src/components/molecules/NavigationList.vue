@@ -5,10 +5,10 @@ import NavigationItem from '../atoms/NavigationItem.vue';
 <template>
   <nav class="header__nav">
     <ul class="header__list">
-      <navigation-item icon-id="all" />
-      <navigation-item icon-id="movies" />
-      <navigation-item icon-id="tv" />
-      <navigation-item icon-id="bookmark" />
+      <navigation-item icon-id="all" path="/" />
+      <navigation-item icon-id="movies" path="/movies" />
+      <navigation-item icon-id="tv" path="/tv-shows" />
+      <navigation-item icon-id="bookmark" path="/favorites" />
     </ul>
   </nav>
 </template>
