@@ -1,6 +1,12 @@
 <script setup>
 import TheHeader from './components/organisms/TheHeader.vue';
 import TheSvg from './components/ions/TheSvg.vue';
+
+import { useStore } from 'vuex';
+
+const store = useStore();
+
+console.log(store.getters['motionPicture/motionPictures']);
 </script>
 
 <template>
