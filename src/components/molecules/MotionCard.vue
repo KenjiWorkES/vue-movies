@@ -1,27 +1,29 @@
 <script setup>
 import TheImage from '../atoms/TheImage.vue';
 import MotionInfo from '../atoms/MotionInfo.vue';
+
+const props = defineProps(['title', 'year', 'rating', 'image']);
 </script>
 
 <template>
   <figure class="card">
     <div class="card__imageContainer">
       <the-image
-        src="../../../public/assets/thumbnails/beyond-earth/regular/large.jpg"
-        alt=""
+        :src="props.image"
+        :alt="`Image of ${props.title}`"
       ></the-image>
     </div>
     <figcaption class="card__caption">
       <ul class="card__information">
-        <motion-info text="2019"></motion-info>
+        <motion-info :text="props.year"></motion-info>
         <motion-info
           :has-icon="true"
           icon-id="movies10"
           text="Movie"
         ></motion-info>
-        <motion-info text="PG"></motion-info>
+        <motion-info :text="props.rating"></motion-info>
       </ul>
-      <h3 class="card__title">Beyond Earth</h3>
+      <h3 class="card__title">{{ props.title }}</h3>
     </figcaption>
   </figure>
 </template>

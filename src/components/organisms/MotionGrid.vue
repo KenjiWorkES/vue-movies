@@ -1,11 +1,25 @@
 <script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 import MotionCard from '../molecules/MotionCard.vue';
+
+const store = useStore();
+
+const motionPictures = computed(() => {
+  return store.getters['motionPicture/motionPictures'];
+});
 </script>
 
 <template>
   <section class="cardGrid">
-    <motion-card></motion-card>
-    <motion-card></motion-card>
+    <motion-card
+      v-for="motion in motionPictures"
+      :key="motion.title"
+      :title="motion.title"
+      :year="motion.year"
+      :rating="motion.rating"
+      :image="motion.thumbnail.regular"
+    ></motion-card>
   </section>
 </template>
 
