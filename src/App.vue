@@ -13,7 +13,7 @@ console.log(store.getters['motionPicture/motionPictures']);
   <div class="layout">
     <the-svg />
     <the-header />
-    <main>
+    <main class="main">
       <router-view></router-view>
     </main>
   </div>
@@ -70,5 +70,9 @@ body {
     padding: 3.2rem;
     padding-right: 0;
   }
+}
+
+.main {
+  padding: 0 1.6rem;
 }
 </style>

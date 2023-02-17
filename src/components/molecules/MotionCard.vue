@@ -49,6 +49,10 @@
   &__item {
     font-size: var(--font-size-xs);
     font-weight: 300;
+
+    &:first-child {
+      list-style: none;
+    }
   }
 
   &__title {
