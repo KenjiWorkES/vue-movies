@@ -50,6 +50,10 @@
     font-size: var(--font-size-xs);
     font-weight: 300;
 
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-s);
+    }
+
     &:first-child {
       list-style: none;
     }
@@ -58,6 +62,10 @@
   &__title {
     font-size: var(--font-size-s);
     font-weight: 500;
+
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-m);
+    }
   }
 }
 </style>

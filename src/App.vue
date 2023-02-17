@@ -69,10 +69,15 @@ body {
     padding: 0;
     padding: 3.2rem;
     padding-right: 0;
+    column-gap: 3.6rem;
   }
 }
 
 .main {
   padding: 0 1.6rem;
+
+  @media screen and (min-width: 1024px) {
+    padding: 0;
+  }
 }
 </style>
