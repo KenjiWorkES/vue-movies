@@ -5,6 +5,7 @@ import MotionGrid from '../organisms/MotionGrid.vue';
 <template>
   <div>
     <h1>Movies Page</h1>
+    <motion-grid :is-trending="true"></motion-grid>
     <motion-grid></motion-grid>
   </div>
 </template>

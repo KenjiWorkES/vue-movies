@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import { useStore } from 'vuex';
 import MotionCard from '../molecules/MotionCard.vue';
 
+const props = defineProps(['isTrending']);
 const store = useStore();
 
 const motionPictures = computed(() => {
@@ -11,7 +12,7 @@ const motionPictures = computed(() => {
 </script>
 
 <template>
-  <section class="cardGrid">
+  <section :class="{ cardGrid: true, 'cardGrid--trending': isTrending }">
     <motion-card
       v-for="motion in motionPictures"
       :key="motion.title"
@@ -19,6 +20,7 @@ const motionPictures = computed(() => {
       :year="motion.year"
       :rating="motion.rating"
       :image="motion.thumbnail.regular"
+      :is-trending="isTrending"
     ></motion-card>
   </section>
 </template>
@@ -38,6 +40,16 @@ const motionPictures = computed(() => {
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fill, minmax(22rem, 28rem));
     column-gap: 4rem;
+  }
+
+  &--trending {
+    display: flex;
+    justify-content: flex-start;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 </style>

@@ -2,18 +2,20 @@
 import TheImage from '../atoms/TheImage.vue';
 import MotionInfo from '../atoms/MotionInfo.vue';
 
-const props = defineProps(['title', 'year', 'rating', 'image']);
+const props = defineProps(['title', 'year', 'rating', 'image', 'isTrending']);
 </script>
 
 <template>
-  <figure class="card">
+  <figure :class="{ card: true, 'card--trending': isTrending }">
     <div class="card__imageContainer">
       <the-image
         :src="props.image"
         :alt="`Image of ${props.title}`"
       ></the-image>
     </div>
-    <figcaption class="card__caption">
+    <figcaption
+      :class="{ card__caption: true, 'card__caption--trending': isTrending }"
+    >
       <ul class="card__information">
         <motion-info :text="props.year"></motion-info>
         <motion-info
@@ -23,7 +25,9 @@ const props = defineProps(['title', 'year', 'rating', 'image']);
         ></motion-info>
         <motion-info :text="props.rating"></motion-info>
       </ul>
-      <h3 class="card__title">{{ props.title }}</h3>
+      <h3 :class="{ card__title: true, 'card__title--trending': isTrending }">
+        {{ props.title }}
+      </h3>
     </figcaption>
   </figure>
 </template>
@@ -31,6 +35,15 @@ const props = defineProps(['title', 'year', 'rating', 'image']);
 <style scoped lang="scss">
 .card {
   width: 100%;
+  position: relative;
+
+  &--trending {
+    min-width: 24rem;
+
+    @media screen and (min-width: 768px) {
+      min-width: 47rem;
+    }
+  }
 
   &__imageContainer {
     width: 100%;
@@ -40,6 +53,17 @@ const props = defineProps(['title', 'year', 'rating', 'image']);
     display: flex;
     flex-direction: column;
     row-gap: 0.4rem;
+
+    &--trending {
+      position: absolute;
+      left: 1.6rem;
+      bottom: 1.6rem;
+
+      @media screen and (min-width: 768px) {
+        left: 2.4rem;
+        bottom: 2.4rem;
+      }
+    }
   }
 
   &__information {
@@ -55,6 +79,12 @@ const props = defineProps(['title', 'year', 'rating', 'image']);
 
     @media screen and (min-width: 768px) {
       font-size: var(--font-size-m);
+    }
+
+    &--trending {
+      @media screen and (min-width: 768px) {
+        font-size: var(--font-size-l);
+      }
     }
   }
 }
