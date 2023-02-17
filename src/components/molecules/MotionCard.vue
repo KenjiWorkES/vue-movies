@@ -1,19 +1,25 @@
-<script setup></script>
+<script setup>
+import TheImage from '../atoms/TheImage.vue';
+import MotionInfo from '../atoms/MotionInfo.vue';
+</script>
 
 <template>
   <figure class="card">
     <div class="card__imageContainer">
-      <img
+      <the-image
         src="../../../public/assets/thumbnails/beyond-earth/regular/large.jpg"
         alt=""
-        class="card__image"
-      />
+      ></the-image>
     </div>
     <figcaption class="card__caption">
       <ul class="card__information">
-        <li class="card__item">2019</li>
-        <li class="card__item">Movie</li>
-        <li class="card__item">PG</li>
+        <motion-info text="2019"></motion-info>
+        <motion-info
+          :has-icon="true"
+          icon-id="movies10"
+          text="Movie"
+        ></motion-info>
+        <motion-info text="PG"></motion-info>
       </ul>
       <h3 class="card__title">Beyond Earth</h3>
     </figcaption>
@@ -28,12 +34,6 @@
     width: 100%;
   }
 
-  &__image {
-    width: 100%;
-    border-radius: 0.8rem;
-    margin-bottom: 0.8rem;
-  }
-
   &__caption {
     display: flex;
     flex-direction: column;
@@ -43,20 +43,8 @@
   &__information {
     display: flex;
     list-style: disc;
-    column-gap: 2.6rem;
-  }
-
-  &__item {
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-
-    @media screen and (min-width: 768px) {
-      font-size: var(--font-size-s);
-    }
-
-    &:first-child {
-      list-style: none;
-    }
+    column-gap: 1.5rem;
+    opacity: 0.75;
   }
 
   &__title {
