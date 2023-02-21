@@ -35,6 +35,7 @@ console.log(store.getters['motionPicture/motionPictures']);
 
   --font-size-xl: 3.2rem;
   --font-size-l: 2.4rem;
+  --font-size-sl: 2rem;
   --font-size-m: 1.8rem;
   --font-size-s: 1.6rem;
   --font-size-xs: 1.3rem;

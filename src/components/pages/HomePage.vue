@@ -1,5 +1,6 @@
 <script setup>
 import MotionGrid from '../organisms/MotionGrid.vue';
+import TheHeading from '../atoms/TheHeading.vue';
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -17,11 +18,12 @@ const trendingMotionPictures = computed(() => {
 
 <template>
   <div>
-    <h1>Movies Page</h1>
+    <the-heading text="Trending"></the-heading>
     <motion-grid
       :is-trending="true"
       :motion-pictures="trendingMotionPictures"
     ></motion-grid>
+    <the-heading text="Recommended for you"></the-heading>
     <motion-grid :motion-pictures="allMotionPictures"></motion-grid>
   </div>
 </template>
