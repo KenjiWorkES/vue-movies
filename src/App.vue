@@ -28,6 +28,8 @@ console.log(store.getters['motionPicture/motionPictures']);
   --color-blue-200: #5a698f;
   --color-blue-400: #161d2f;
   --color-blue-600: #10141e;
+  --color-blue-600-05: rgba(16, 20, 30, 0.5);
+
   --color-white: #fff;
 
   --font-size-xl: 3.2rem;

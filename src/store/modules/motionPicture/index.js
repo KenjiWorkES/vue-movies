@@ -8,6 +8,7 @@ export default {
     return {
       motionPictures: [
         {
+          id: 1,
           title: 'Beyond Earth',
           thumbnail: {
             trending: '/assets/thumbnails/beyond-earth/trending/large.jpg',
@@ -20,6 +21,7 @@ export default {
           isTrending: true,
         },
         {
+          id: 2,
           title: 'Bottom Gear',
           thumbnail: {
             trending: '/assets/thumbnails/bottom-gear/trending/large.jpg',
@@ -32,6 +34,7 @@ export default {
           isTrending: true,
         },
         {
+          id: 3,
           title: 'Undiscovered Cities',
           thumbnail: {
             trending:

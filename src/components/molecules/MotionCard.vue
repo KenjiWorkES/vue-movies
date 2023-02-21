@@ -1,6 +1,7 @@
 <script setup>
 import TheImage from '../atoms/TheImage.vue';
 import MotionInfo from '../atoms/MotionInfo.vue';
+import BookmarkButton from '../atoms/BookmarkButton.vue';
 
 const props = defineProps(['title', 'year', 'rating', 'image', 'isTrending']);
 </script>
@@ -12,6 +13,7 @@ const props = defineProps(['title', 'year', 'rating', 'image', 'isTrending']);
         :src="props.image"
         :alt="`Image of ${props.title}`"
       ></the-image>
+      <bookmark-button />
     </div>
     <figcaption
       :class="{ card__caption: true, 'card__caption--trending': isTrending }"
@@ -47,6 +49,7 @@ const props = defineProps(['title', 'year', 'rating', 'image', 'isTrending']);
 
   &__imageContainer {
     width: 100%;
+    position: relative;
   }
 
   &__caption {
