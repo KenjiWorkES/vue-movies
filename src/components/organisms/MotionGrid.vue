@@ -1,14 +1,7 @@
 <script setup>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
 import MotionCard from '../molecules/MotionCard.vue';
 
-const props = defineProps(['isTrending']);
-const store = useStore();
-
-const motionPictures = computed(() => {
-  return store.getters['motionPicture/motionPictures'];
-});
+const props = defineProps(['isTrending', 'motionPictures']);
 </script>
 
 <template>
