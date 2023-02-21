@@ -6,5 +6,6 @@ export const getSingleMedia = async (mediaId) => {
   const response = await fetch(requestUrl);
 
   const media = await response.json();
+  console.log(media);
   return media;
 };

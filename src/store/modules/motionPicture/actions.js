@@ -8,7 +8,7 @@ export default {
 
     const motionsArray = [];
 
-    motions.forEach(async (motion) => {
+    for (const motion of motions) {
       const regularImage = await getSingleMedia(motion.acf.regular);
 
       let trendingImage = null;
@@ -19,20 +19,21 @@ export default {
 
       const motionAux = {
         id: motion.id,
+        title: motion.title.rendered,
         thumbnail: {
-          trending: trendingImage ? trendingImage.link : trendingImage,
-          regular: regularImage.link,
+          trending: trendingImage ? trendingImage.source_url : trendingImage,
+          regular: regularImage.source_url,
         },
         year: motion.acf.year,
         category: motion.acf.category,
         rating: motion.acf.rating,
         isBookmarked: false,
-        isTrending: motion.acf.isTrending,
+        isTrending: motion.acf.istrending,
       };
 
       motionsArray.push(motionAux);
-    });
+    }
 
-    context.commit('setMotions', motions);
+    context.commit('setMotions', motionsArray);
   },
 };

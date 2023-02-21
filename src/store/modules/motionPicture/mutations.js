@@ -1,3 +1,6 @@
 export default {
-  setMotions(state, payload) {},
+  setMotions(state, payload) {
+    console.log(payload);
+    state.motionPictures = payload;
+  },
 };
