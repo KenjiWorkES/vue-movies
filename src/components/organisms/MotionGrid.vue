@@ -5,7 +5,10 @@ const props = defineProps(['isTrending', 'motionPictures']);
 </script>
 
 <template>
-  <section :class="{ cardGrid: true, 'cardGrid--trending': isTrending }">
+  <section
+    :class="{ cardGrid: true, 'cardGrid--trending': isTrending }"
+    v-dragscroll
+  >
     <motion-card
       v-for="motion in motionPictures"
       :key="motion.id"
@@ -43,11 +46,8 @@ const props = defineProps(['isTrending', 'motionPictures']);
   &--trending {
     display: flex;
     justify-content: flex-start;
-    overflow: scroll;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    overflow-x: hidden;
+    cursor: grab;
   }
 }
 </style>
