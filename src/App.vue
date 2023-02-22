@@ -4,15 +4,23 @@ import TheLoading from './components/atoms/TheLoading.vue';
 import TheSvg from './components/ions/TheSvg.vue';
 
 import { useStore } from 'vuex';
+import { ref } from 'vue';
 
+const isLoading = ref(false);
 const store = useStore();
 
-store.dispatch('motionPicture/fetchAllMotionPictures');
+const getMotions = async () => {
+  isLoading.value = true;
+  await store.dispatch('motionPicture/fetchAllMotionPictures');
+  isLoading.value = false;
+};
+
+getMotions();
 </script>
 
 <template>
   <div class="layout">
-    <the-loading></the-loading>
+    <the-loading v-if="isLoading"></the-loading>
     <the-svg />
     <the-header />
     <main class="main">
