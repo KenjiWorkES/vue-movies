@@ -19,6 +19,7 @@ const props = defineProps(['isTrending', 'motionPictures']);
         !isTrending ? motion.thumbnail.regular : motion.thumbnail.trending
       "
       :is-trending="isTrending"
+      :category="motion.category"
     ></motion-card>
   </section>
 </template>

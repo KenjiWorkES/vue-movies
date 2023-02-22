@@ -3,7 +3,14 @@ import TheImage from '../atoms/TheImage.vue';
 import MotionInfo from '../atoms/MotionInfo.vue';
 import BookmarkButton from '../atoms/BookmarkButton.vue';
 
-const props = defineProps(['title', 'year', 'rating', 'image', 'isTrending']);
+const props = defineProps([
+  'title',
+  'year',
+  'rating',
+  'image',
+  'isTrending',
+  'category',
+]);
 </script>
 
 <template>
@@ -22,8 +29,8 @@ const props = defineProps(['title', 'year', 'rating', 'image', 'isTrending']);
         <motion-info :text="props.year"></motion-info>
         <motion-info
           :has-icon="true"
-          icon-id="movies10"
-          text="Movie"
+          :icon-id="props.category === 'Movie' ? 'movies10' : 'tv10'"
+          :text="props.category"
         ></motion-info>
         <motion-info :text="props.rating"></motion-info>
       </ul>
