@@ -3,7 +3,7 @@ import MotionGrid from '../organisms/MotionGrid.vue';
 import TheHeading from '../atoms/TheHeading.vue';
 import NotFound from '../molecules/NotFound.vue';
 
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();

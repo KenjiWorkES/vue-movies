@@ -1,7 +1,7 @@
 import { ref, watch } from 'vue';
 
 const useSearch = (initialArray, sectionTitle) => {
-  const filteredMotions = ref([]);
+  const filteredMotions = ref(initialArray);
   const alreadySearch = ref(false);
   const title = sectionTitle.value;
 
