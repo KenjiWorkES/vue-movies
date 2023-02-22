@@ -24,7 +24,9 @@ getMotions();
     <the-svg />
     <the-header />
     <main class="main">
-      <router-view></router-view>
+      <transition name="router" mode="in-out">
+        <router-view></router-view>
+      </transition>
     </main>
   </div>
 </template>
@@ -93,6 +95,26 @@ body {
 
   @media screen and (min-width: 1024px) {
     padding: 0;
+  }
+}
+
+.router {
+  &-enter-to,
+  &-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  &-enter-active {
+    transition: all 0.3s ease-in;
+  }
+  &-leave-active {
+    transition: all 0.3s ease-out;
   }
 }
 </style>
