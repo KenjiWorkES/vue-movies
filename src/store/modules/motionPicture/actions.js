@@ -4,7 +4,6 @@ import { getSingleMedia } from '../../../helpers/media';
 export default {
   async fetchAllMotionPictures(context) {
     const motions = await getMotions();
-    console.log(motions);
 
     const motionsArray = [];
 
