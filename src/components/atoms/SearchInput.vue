@@ -1,9 +1,18 @@
 <script setup>
+import { ref } from 'vue';
+
 const props = defineProps(['placeholder']);
+const emit = defineEmits(['onSubmit']);
+
+const searchValue = ref('');
+
+const submitHandler = () => {
+  emit('onSubmit', searchValue.value);
+};
 </script>
 
 <template>
-  <form class="search">
+  <form @submit.prevent="submitHandler" class="search">
     <button class="search__button">
       <svg class="search__icon">
         <use href="#search" xlink-href="#search" />
@@ -14,6 +23,7 @@ const props = defineProps(['placeholder']);
       aria-label="search input"
       type="text"
       :placeholder="props.placeholder"
+      v-model="searchValue"
     />
   </form>
 </template>
@@ -22,6 +32,7 @@ const props = defineProps(['placeholder']);
 .search {
   display: flex;
   column-gap: 1.6rem;
+  margin-top: 2.4rem;
 
   &__button {
     background-color: transparent;
