@@ -5,15 +5,12 @@ export default {
   },
   changeBookmark(state, payload) {
     const { id, value } = payload;
-    const markedMotion = state.motionPictures.find(
-      (motion) => (motion.id = id)
-    );
 
-    const markedIndex = state.motionPictures.indexOf(markedMotion);
-
-    markedMotion.isBookmarked = value;
-
-    state.motionPictures[markedIndex] = markedMotion;
-    console.log(markedIndex);
+    for (const motion of state.motionPictures) {
+      if (motion.id === id) {
+        motion.isBookmarked = value;
+        break;
+      }
+    }
   },
 };
