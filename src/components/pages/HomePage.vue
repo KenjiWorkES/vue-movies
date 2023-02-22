@@ -2,6 +2,7 @@
 import MotionGrid from '../organisms/MotionGrid.vue';
 import TheHeading from '../atoms/TheHeading.vue';
 import NotFound from '../molecules/NotFound.vue';
+import SearchInput from '../atoms/SearchInput.vue';
 
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -19,6 +20,7 @@ const trendingMotionPictures = computed(() => {
 
 <template>
   <div>
+    <search-input></search-input>
     <the-heading text="Trending"></the-heading>
     <motion-grid
       v-if="trendingMotionPictures.length > 0"
