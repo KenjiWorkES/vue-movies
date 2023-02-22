@@ -7,7 +7,6 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 store.dispatch('motionPicture/fetchAllMotionPictures');
-console.log(store.getters['motionPicture/motionPictures']);
 </script>
 
 <template>

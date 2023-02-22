@@ -1,11 +1,20 @@
 <script setup>
 import MotionGrid from '../organisms/MotionGrid.vue';
+import TheHeading from '../atoms/TheHeading.vue';
+
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
+
+const moviesPictures = computed(() => {
+  return store.getters['motionPicture/moviesPictures'];
+});
 </script>
 
 <template>
-  <div class="container">
-    <h1>Movies Page</h1>
-    <motion-grid :is-trending="true"></motion-grid>
-    <motion-grid></motion-grid>
+  <div>
+    <the-heading text="Movies"></the-heading>
+    <motion-grid :motion-pictures="moviesPictures"></motion-grid>
   </div>
 </template>
