@@ -23,4 +23,7 @@ export default {
       (motion) => motion.category === 'TV Series' && motion.isBookmarked
     );
   },
+  bookmarkedPictures(state) {
+    return state.motionPictures.filter((motion) => motion.isBookmarked);
+  },
 };
