@@ -1,5 +1,6 @@
 <script setup>
 import TheHeader from './components/organisms/TheHeader.vue';
+import TheLoading from './components/atoms/TheLoading.vue';
 import TheSvg from './components/ions/TheSvg.vue';
 
 import { useStore } from 'vuex';
@@ -11,6 +12,7 @@ store.dispatch('motionPicture/fetchAllMotionPictures');
 
 <template>
   <div class="layout">
+    <the-loading></the-loading>
     <the-svg />
     <the-header />
     <main class="main">
@@ -29,6 +31,7 @@ store.dispatch('motionPicture/fetchAllMotionPictures');
   --color-blue-400: #161d2f;
   --color-blue-600: #10141e;
   --color-blue-600-05: rgba(16, 20, 30, 0.5);
+  --color-blue-600-08: rgba(16, 20, 30, 0.8);
 
   --color-white: #fff;
 
