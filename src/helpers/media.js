@@ -1,4 +1,4 @@
-const MEDIA_URL = import.meta.env.VITE_MEDIA_URL;
+const MEDIA_URL = 'https://teste.kenjidev.com.br/wp-json/wp/v2/media/';
 
 export const getSingleMedia = async (mediaId) => {
   const requestUrl = MEDIA_URL + mediaId;
@@ -6,6 +6,5 @@ export const getSingleMedia = async (mediaId) => {
   const response = await fetch(requestUrl);
 
   const media = await response.json();
-  console.log(media);
   return media;
 };
