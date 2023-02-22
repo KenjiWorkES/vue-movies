@@ -11,6 +11,7 @@ const props = defineProps(['isTrending', 'motionPictures']);
   >
     <motion-card
       v-for="motion in motionPictures"
+      :id="motion.id"
       :key="motion.id"
       :title="motion.title"
       :year="motion.year"
@@ -20,6 +21,7 @@ const props = defineProps(['isTrending', 'motionPictures']);
       "
       :is-trending="isTrending"
       :category="motion.category"
+      :is-bookmarked="motion.isBookmarked"
     ></motion-card>
   </section>
 </template>

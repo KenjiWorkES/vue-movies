@@ -1,10 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
-const isActive = ref(false);
+const emit = defineEmits(['onBookmark']);
+const props = defineProps(['initialState']);
+
+const isActive = ref(props.initialState);
 
 const onClickHandler = () => {
   isActive.value = !isActive.value;
+  emit('onBookmark', isActive.value);
 };
 </script>
 
@@ -38,6 +42,10 @@ const onClickHandler = () => {
 
   &:hover &__icon {
     stroke: var(--color-blue-600);
+  }
+
+  &:hover &__icon--active {
+    fill: var(--color-blue-600);
   }
 
   &__icon {

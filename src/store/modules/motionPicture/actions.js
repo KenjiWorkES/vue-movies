@@ -36,4 +36,7 @@ export default {
 
     context.commit('setMotions', motionsArray);
   },
+  favoriteMotion(context, payload) {
+    context.commit('changeBookmark', payload);
+  },
 };

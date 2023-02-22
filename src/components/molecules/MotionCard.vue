@@ -3,14 +3,27 @@ import TheImage from '../atoms/TheImage.vue';
 import MotionInfo from '../atoms/MotionInfo.vue';
 import BookmarkButton from '../atoms/BookmarkButton.vue';
 
+import { useStore } from 'vuex';
+
+const store = useStore();
+
 const props = defineProps([
+  'id',
   'title',
   'year',
   'rating',
   'image',
   'isTrending',
   'category',
+  'isBookmarked',
 ]);
+
+const bookmarkCardHandler = (value) => {
+  store.dispatch('motionPicture/favoriteMotion', {
+    id: props.id,
+    value: value,
+  });
+};
 </script>
 
 <template>
@@ -20,7 +33,10 @@ const props = defineProps([
         :src="props.image"
         :alt="`Image of ${props.title}`"
       ></the-image>
-      <bookmark-button />
+      <bookmark-button
+        :initial-state="props.isBookmarked"
+        @on-bookmark="bookmarkCardHandler"
+      />
     </div>
     <figcaption
       :class="{ card__caption: true, 'card__caption--trending': isTrending }"
