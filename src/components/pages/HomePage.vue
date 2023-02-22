@@ -20,7 +20,7 @@ const trendingMotionPictures = computed(() => {
 
 <template>
   <div>
-    <search-input></search-input>
+    <search-input placeholder="Search for movies or TV series"></search-input>
     <the-heading text="Trending"></the-heading>
     <motion-grid
       v-if="trendingMotionPictures.length > 0"
