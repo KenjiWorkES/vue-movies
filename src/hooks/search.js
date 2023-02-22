@@ -1,7 +1,9 @@
 import { ref, watch } from 'vue';
 
-const useSearch = (initialArray) => {
+const useSearch = (initialArray, sectionTitle) => {
   const filteredMotions = ref([]);
+  const alreadySearch = ref(false);
+  const title = sectionTitle.value;
 
   watch(initialArray, () => {
     filteredMotions.value = initialArray.value;
@@ -13,12 +15,20 @@ const useSearch = (initialArray) => {
         motion.title.toLowerCase().includes(value.toLowerCase())
       );
       filteredMotions.value = [...motions];
+      sectionTitle.value = `Found ${filteredMotions.value.length} results for '${value}'`;
+      alreadySearch.value = true;
     } else {
       filteredMotions.value = initialArray.value;
+      sectionTitle.value = title;
+      alreadySearch.value = false;
     }
   };
 
-  return { filteredMotions: filteredMotions, searchHandler: searchHandler };
+  return {
+    filteredMotions: filteredMotions,
+    searchHandler: searchHandler,
+    alreadySearch: alreadySearch,
+  };
 };
 
 export default useSearch;
