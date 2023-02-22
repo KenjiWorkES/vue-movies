@@ -13,4 +13,14 @@ export default {
       (motion) => motion.category === 'TV Series'
     );
   },
+  bookmarkedMoviesPictures(state) {
+    return state.motionPictures.filter(
+      (motion) => motion.category === 'Movie' && motion.isBookmarked
+    );
+  },
+  bookmarkedTvSeriesPictures(state) {
+    return state.motionPictures.filter(
+      (motion) => motion.category === 'TV Series' && motion.isBookmarked
+    );
+  },
 };
